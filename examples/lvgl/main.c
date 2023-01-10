@@ -90,7 +90,7 @@ int main(void)
     printf("lvgl init start\r\n");
     /* lvgl init */
     lv_log_register_print_cb(lv_log_print_g_cb);
-    printf("lvgl log register print cb compleye\r\n");
+    printf("lvgl log register print cb complete\r\n");
     lv_init();
     printf("lvgl lv init complete\r\n");
     lv_port_disp_init();
