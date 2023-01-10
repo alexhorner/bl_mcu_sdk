@@ -90,6 +90,23 @@
     } while (0)
 #endif
 
+#if defined(BL606P) || defined(BL808)
+#define PERIPHERAL_CLOCK_SPI1_1_ENABLE()                          \
+    do {                                                          \
+        volatile uint32_t regval = getreg32(0x30007010);          \
+        /*MM_GLB_REG_SPI_CLK_DIV_EN_POS mm_reg_glb.h*/            \
+        regval |= (1 << 23);                                      \
+        putreg32(regval, 0x30007010);                             \
+    } while (0)
+#else
+#define PERIPHERAL_CLOCK_SPI1_ENABLE()                            \
+    do {                                                          \
+        volatile uint32_t regval = getreg32(0x30007010);          \
+        regval |= (1 << 23);                                      \
+        putreg32(regval, 0x30007010);                             \
+    } while (0)
+#endif
+
 #define PERIPHERAL_CLOCK_I2C0_ENABLE()                            \
     do {                                                          \
         volatile uint32_t regval = getreg32(BFLB_GLB_CGEN1_BASE); \

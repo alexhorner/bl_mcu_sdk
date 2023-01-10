@@ -53,7 +53,8 @@
 */
 
 /* Select screen Type */
-#define LCD_SPI_ST7789V
+//#define LCD_SPI_ST7789V
+#define  LCD_SPI_ILI9341
 
 #define LCD_INTERFACE_SPI       1
 #define LCD_INTERFACE_DBI       2

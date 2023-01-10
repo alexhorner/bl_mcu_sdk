@@ -24,8 +24,11 @@ void bflb_spi_init(struct bflb_device_s *dev, const struct bflb_spi_config_s *co
     putreg32(regval, GLB_SPI_MODE_ADDRESS);
 
     reg_base = dev->reg_base;
+
     /* integer frequency segmentation by rounding */
-    div = (bflb_clk_get_peripheral_clock(BFLB_DEVICE_TYPE_SPI, dev->idx) / 2 * 10 / config->freq + 5) / 10;
+    uint8_t idx_ref = dev->idx;
+    uint32_t get_perip_clock_val = bflb_clk_get_peripheral_clock(BFLB_DEVICE_TYPE_SPI, idx_ref);
+    div = (get_perip_clock_val / 2 * 10 / config->freq + 5) / 10;
     div = (div) ? (div - 1) : 0;
     div = (div > 0xff) ? 0xff : div;
 
