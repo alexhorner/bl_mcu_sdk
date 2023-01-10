@@ -98,6 +98,7 @@ void lv_port_disp_init(void)
      * Initialize your display
      * -----------------------*/
     disp_init();
+    printf("lv_port_disp_init disp_init complete\r\n");
 
     /*-----------------------------
      * Create a buffer for drawing
@@ -215,10 +216,14 @@ void rgb_screen_frame_callback(void)
 
 void disp_init(void)
 {
+    printf("lv_port_disp_init disp_init type1\r\n");
     lcd_init();
+    printf("lv_port_disp_init disp_init lcd_init complete\r\n");
     lcd_async_callback_register(flush_async_callback);
+    printf("lv_port_disp_init disp_init lcd_async_callback_register complete\r\n");
 
     lcd_clear(LCD_COLOR_RGB(0x00, 0X00, 0X00));
+    printf("lv_port_disp_init disp_init lcd_clear complete\r\n");
 }
 
 /* RGB LCD Common interface,  */
@@ -226,6 +231,7 @@ void disp_init(void)
 
 void disp_init(void)
 {
+    printf("lv_port_disp_init disp_init type2\r\n");
     /* init MIPI-DPI */
 #if RGB_TRIPLE_BUFF_MODE
     lcd_clear((lcd_color_t *)draw_buf_3, LCD_COLOR_RGB(0x00, 0x00, 0x00));
