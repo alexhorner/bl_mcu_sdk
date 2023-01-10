@@ -91,12 +91,14 @@ struct bflb_device_s bl808_device_table[] = {
       .idx = 0,
       .dev_type = BFLB_DEVICE_TYPE_SPI,
       .user_data = NULL },
+#if defined(CPU_D0)
     { .name = "spi1",
       .reg_base = SPI1_BASE,
       .irq_num = BL808_IRQ_SPI1,
       .idx = 0,
       .dev_type = BFLB_DEVICE_TYPE_SPI,
       .user_data = NULL },
+#endif
     { .name = "pwm_v2_0",
       .reg_base = PWM_BASE,
 #if defined(CPU_M0)
@@ -196,6 +198,7 @@ struct bflb_device_s bl808_device_table[] = {
       .sub_idx = 7,
       .dev_type = BFLB_DEVICE_TYPE_DMA,
       .user_data = NULL },
+#if defined(CPU_D0)
     { .name = "dma2_ch0",
       .reg_base = DMA2_BASE + 1 * DMA_CHANNEL_OFFSET,
       .irq_num = BL808_IRQ_DMA2_INT0,
@@ -252,6 +255,7 @@ struct bflb_device_s bl808_device_table[] = {
       .sub_idx = 3,
       .dev_type = BFLB_DEVICE_TYPE_DMA,
       .user_data = NULL },
+#endif
     { .name = "i2c0",
       .reg_base = I2C0_BASE,
 #if defined(CPU_M0)
