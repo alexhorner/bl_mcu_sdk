@@ -51,6 +51,13 @@
         putreg32(regval, BFLB_GLB_CGEN1_BASE);                    \
     } while (0)
 
+/*#define PERIPHERAL_CLOCK_DMA2_ENABLE()                            \
+    do {                                                          \
+        volatile uint32_t regval = getreg32(0x30007018);          \
+        regval |= (1 << 24);                                      \
+        putreg32(regval, 0x30007018);                             \
+    } while (0)*/
+
 #if defined(BL606P) || defined(BL808)
 #define PERIPHERAL_CLOCK_DMA1_ENABLE()
 #define PERIPHERAL_CLOCK_DMA2_ENABLE()
