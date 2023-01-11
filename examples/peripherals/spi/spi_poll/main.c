@@ -25,10 +25,10 @@ static void gpio_init(void)
     bflb_gpio_init(gpio, GPIO_PIN_18, GPIO_OUTPUT | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
 
     /* lcd spi mosi */
-    bflb_gpio_init(gpio, GPIO_PIN_25, GPIO_FUNC_SPI0 | GPIO_ALTERNATE | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
+    bflb_gpio_init(gpio, GPIO_PIN_25, GPIO_FUNC_SPI1 | GPIO_ALTERNATE | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
 
     /* lcd spi clock */
-    bflb_gpio_init(gpio, GPIO_PIN_23, GPIO_FUNC_SPI0 | GPIO_ALTERNATE | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
+    bflb_gpio_init(gpio, GPIO_PIN_23, GPIO_FUNC_SPI1 | GPIO_ALTERNATE | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
 
     /* backlight pin */
     bflb_gpio_init(gpio, GPIO_PIN_11, GPIO_OUTPUT | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
@@ -174,7 +174,7 @@ int main(void)
         .rx_fifo_threshold = 0,
     };
 
-    spi0 = bflb_device_get_by_name("spi0");
+    spi0 = bflb_device_get_by_name("spi1");
     bflb_spi_init(spi0, &spi_cfg);
 
     bflb_spi_feature_control(spi0, SPI_CMD_SET_CS_INTERVAL, 0);

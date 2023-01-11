@@ -17,9 +17,9 @@ void bflb_spi_init(struct bflb_device_s *dev, const struct bflb_spi_config_s *co
     /* GLB select master or slave mode */
     regval = getreg32(GLB_SPI_MODE_ADDRESS);
     if (config->role == SPI_ROLE_MASTER) {
-        regval |= 1 << 12;
+        regval |= 1 << 27;
     } else {
-        regval &= ~(1 << 12);
+        regval &= ~(1 << 27);
     }
     putreg32(regval, GLB_SPI_MODE_ADDRESS);
 
