@@ -42,6 +42,7 @@
 
 /* Register offsets *********************************************************/
 
+//1 bit per channel globals?
 #define DMA_INTSTATUS_OFFSET         (0x0)  /* DMA_IntStatus */
 #define DMA_INTTCSTATUS_OFFSET       (0x4)  /* DMA_IntTCStatus */
 #define DMA_INTTCCLEAR_OFFSET        (0x8)  /* DMA_IntTCClear */
@@ -121,6 +122,7 @@
 #define DMA_SYNC_SHIFT (0U)
 #define DMA_SYNC_MASK  (0xffffffff << DMA_SYNC_SHIFT)
 
+//C1 source addr, C1 dest addr, C1 LLI addr, C1 Control, C1 Config... rep for 32 channels
 /* 0x100 : DMA_CxSrcAddr */
 #define DMA_SRCADDR_SHIFT (0U)
 #define DMA_SRCADDR_MASK  (0xffffffff << DMA_SRCADDR_SHIFT)

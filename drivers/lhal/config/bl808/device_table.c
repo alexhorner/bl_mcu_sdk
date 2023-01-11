@@ -200,7 +200,7 @@ struct bflb_device_s bl808_device_table[] = {
       .user_data = NULL },
 #if defined(CPU_D0)
     { .name = "dma2_ch0",
-      .reg_base = DMA2_BASE + 1 * DMA_CHANNEL_OFFSET,
+      .reg_base = DMA2_BASE + 1 * DMA_CHANNEL_OFFSET, //Where the 5 reg bases are from dma_reg.h? (rep for 32 channels)
       .irq_num = BL808_IRQ_DMA2_INT0,
       .idx = 0,
       .sub_idx = 3,
