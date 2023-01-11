@@ -1,6 +1,7 @@
 #include "bflb_mtimer.h"
 #include "bflb_spi.h"
 #include "board.h"
+#include "bflb_gpio.h"
 
 #define SPI_MASTER_CASE 0
 #define SPI_SLAVE_CASE  1
@@ -11,6 +12,31 @@
 
 uint32_t tx_buff[BUFF_LEN / 4];
 uint32_t rx_buff[BUFF_LEN / 4];
+
+static void gpio_init(void)
+{
+    struct bflb_device_s *gpio;
+    gpio = bflb_device_get_by_name("gpio");
+
+    /* lcd cs, see in bsp/common/lcd/spi/xxx_spi.h */
+    bflb_gpio_init(gpio, GPIO_PIN_29, GPIO_OUTPUT | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
+
+    /* lcd dc, see in bsp/common/lcd/spi/xxx_spi.h */
+    bflb_gpio_init(gpio, GPIO_PIN_18, GPIO_OUTPUT | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
+
+    /* lcd spi mosi */
+    bflb_gpio_init(gpio, GPIO_PIN_25, GPIO_FUNC_SPI0 | GPIO_ALTERNATE | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
+
+    /* lcd spi clock */
+    bflb_gpio_init(gpio, GPIO_PIN_23, GPIO_FUNC_SPI0 | GPIO_ALTERNATE | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
+
+    /* backlight pin */
+    bflb_gpio_init(gpio, GPIO_PIN_11, GPIO_OUTPUT | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
+    bflb_gpio_set(gpio, GPIO_PIN_11);
+    /* reset pin */
+    bflb_gpio_init(gpio, GPIO_PIN_24, GPIO_OUTPUT | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
+    bflb_gpio_set(gpio, GPIO_PIN_24);
+}
 
 struct bflb_device_s *spi0;
 
@@ -129,7 +155,8 @@ int bflb_spi_poll_exchange_test(uint32_t data_width)
 int main(void)
 {
     board_init();
-    board_spi0_gpio_init();
+    //board_spi0_gpio_init();
+    gpio_init();
 
     struct bflb_spi_config_s spi_cfg = {
 #if (SPI_CASE_SELECT == SPI_MASTER_CASE)
