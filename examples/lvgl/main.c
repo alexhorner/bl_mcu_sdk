@@ -64,13 +64,13 @@ static void gpio_init(void)
     bflb_gpio_init(gpio, GPIO_PIN_29 /*Pin 21*/, GPIO_OUTPUT | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
 
     /* lcd dc, see in bsp/common/lcd/spi/xxx_spi.h */
-    bflb_gpio_init(gpio, GPIO_PIN_18 /*Pin 34*/, GPIO_OUTPUT | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
+    bflb_gpio_init(gpio, GPIO_PIN_31 /*Pin 24*/, GPIO_OUTPUT | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
 
     /* lcd spi mosi */
     bflb_gpio_init(gpio, GPIO_PIN_25 /*Pin 16*/, GPIO_FUNC_SPI0 | GPIO_ALTERNATE | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
 
     /* lcd spi clock */
-    bflb_gpio_init(gpio, GPIO_PIN_22/*Pin 15*/, GPIO_FUNC_SPI0 | GPIO_ALTERNATE | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
+    bflb_gpio_init(gpio, GPIO_PIN_27/*Pin 19*/, GPIO_FUNC_SPI0 | GPIO_ALTERNATE | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
 
     /* backlight pin */
     bflb_gpio_init(gpio, GPIO_PIN_11 /*Pin 29*/, GPIO_OUTPUT | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);

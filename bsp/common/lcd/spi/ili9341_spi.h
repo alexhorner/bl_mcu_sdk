@@ -27,7 +27,7 @@
 #include "bflb_core.h"
 
 #define ILI9341_SPI_CS_PIN GPIO_PIN_29
-#define ILI9341_SPI_DC_PIN GPIO_PIN_18
+#define ILI9341_SPI_DC_PIN GPIO_PIN_31
 
 #define ILI9341_SPI_CS_HIGH bflb_gpio_set(ili9341_gpio, ILI9341_SPI_CS_PIN)
 #define ILI9341_SPI_CS_LOW  bflb_gpio_reset(ili9341_gpio, ILI9341_SPI_CS_PIN)
