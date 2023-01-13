@@ -60,9 +60,6 @@ static void gpio_init(void)
     struct bflb_device_s *gpio;
     gpio = bflb_device_get_by_name("gpio");
 
-    struct bflb_device_s *gpio;
-    gpio = bflb_device_get_by_name("gpio");
-
     /* lcd cs, see in bsp/common/lcd/spi/xxx_spi.h */
     bflb_gpio_init(gpio, GPIO_PIN_29 /*Pin 21*/, GPIO_OUTPUT | GPIO_PULLUP | GPIO_SMT_EN | GPIO_DRV_2);
 
