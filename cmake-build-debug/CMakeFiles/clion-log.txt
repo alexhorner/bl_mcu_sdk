@@ -1,4 +1,4 @@
-/home/ahorner/clion-2021.2.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/ahorner/ox64/bl_mcu_sdk
+/home/ahorner/clion-2021.2.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/ahorner/ox64/bl_mcu_sdk_alexhorner
 CMake Warning (dev) in CMakeLists.txt:
   No project() command is present.  The top-level CMakeLists.txt file must
   contain a literal, direct call to the project() command.  Add a line of
@@ -33,4 +33,4 @@ CMake Error at components/CMakeLists.txt:1 (sdk_add_subdirectory_ifdef):
 
 
 -- Configuring incomplete, errors occurred!
-See also "/home/ahorner/ox64/bl_mcu_sdk/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/home/ahorner/ox64/bl_mcu_sdk_alexhorner/cmake-build-debug/CMakeFiles/CMakeOutput.log".

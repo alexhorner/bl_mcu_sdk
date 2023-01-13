@@ -133,8 +133,8 @@ void fatfs_sdh_driver_register(void)
     pNewDiskioDriver.Translate_Result_Code = Translate_Result_Code;
     disk_driver_callback_init(&pNewDiskioDriver);
 
-    bflb_irq_attach(33, sdh_isr, NULL);
-    bflb_irq_enable(33);
+    bflb_irq_attach(1, sdh_isr, NULL);
+    bflb_irq_enable(1);
 }
 
 #endif
